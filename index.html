@@ -4,151 +4,186 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#007ACC">
+  <meta name="description" content="Dmitry's Friends — токен, рожденный из дружбы и семейного тепла. Присоединяйтесь к теплой семье DF и вместе делайте мир добрее!">
   <title>Dmitry's Friends (DF)</title>
   <style>
-    :root {
-      --primary-bg-color: #e0f4ff;
-      /* Укажите высококачественное изображение (минимум 1920×1080 или @2x для Retina) */
-      --bg-image-url: url('4.jpg');
-      --secondary-bg: #007acc;
-      --text-color: #0a1e34;
-      --accent-color: #006aff;
-      --gold-gradient: linear-gradient(90deg, #c0a16b 0%, #ffdf7a 50%, #c0a16b 100%);
-      --nav-height: 60px;
-      --transition: 0.3s;
-      --font-sans: 'Arial', sans-serif;
-    }
+    /* Base reset and box-sizing */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html, body { height: 100%; margin: 0; padding: 0; scroll-behavior: smooth; }
     body {
-      font-family: var(--font-sans);
-      color: var(--text-color);
-      background-color: var(--primary-bg-color);
-      background-image: var(--bg-image-url);
-      background-size: cover;         /* Изображение покрывает весь экран */
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      animation: bgPan 60s linear infinite;
-      image-rendering: optimizeQuality;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #007bff; /* ярко-синий текст */
+      background: url('4.jpg') center center / cover fixed no-repeat;
       display: flex;
-      padding-top: var(--nav-height);
+      flex-direction: column;
     }
-    /* Анимация движения фона */
-    @keyframes bgPan {
-      0% { background-position: center top; }
-      50% { background-position: center bottom; }
-      100% { background-position: center top; }
+    /* Accessibility: skip to content */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #006aff;
+      color: #fff;
+      padding: 8px;
+      z-index: 100;
+      transition: top 0.3s;
     }
-    .chrome-gold {
-      background: var(--gold-gradient);
+    .skip-link:focus { top: 0; }
+    header {
+      position: fixed;
+      width: 100%;
+      background: #0a007d;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: #ffd700; /* gold for active nav */
+      text-decoration: none;
+      padding: 15px;
+    }
+    nav a:hover, nav a:focus {
+      text-decoration: underline;
+    }
+    main {
+      margin-top: 60px;
+      flex: 1;
+      display: flex;
+    }
+    aside {
+      width: 200px;
+      padding: 20px;
+    }
+    aside img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .container {
+      flex: 1;
+      padding: 20px;
+      display: grid;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    section {
+      background: transparent;
+      padding: 30px;
+      border-radius: 8px;
+    }
+    h1, h2, h3 {
+      margin-bottom: 15px;
+      /* Хромированно-золотой текст */
+      background: linear-gradient(90deg, #c0a16b 0%, #ffdf7a 50%, #c0a16b 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
     }
-    nav {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: var(--nav-height);
-      background: var(--secondary-bg);
-      display: flex; align-items: center; justify-content: space-around;
-      padding: 0 10px; z-index: 1000;
-    }
-    nav a {
-      text-decoration: none; font-weight: bold; color: inherit;
-      padding: 10px 15px; border-radius: 4px; display: inline-block;
-    }
-    .content-wrapper {
-      display: flex;
-      width: 100%;
-    }
-    aside.sidebar {
-      width: 200px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    aside.sidebar img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    main {
-      flex: 1;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    section {
-      padding: 40px 20px;
-      background: rgba(255,255,255,0.85);
-      border-radius: 8px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    h1, h2, h3 { margin-bottom: 20px; color: var(--accent-color); }
-    p { margin-bottom: 15px; line-height: 1.6; }
-    ul { margin: 0 0 15px 20px; }
     .btn {
-      display: inline-block; background: var(--accent-color);
-      color: #fff; padding: 12px 24px; border: none;
-      border-radius: 6px; text-decoration: none;
-      font-weight: bold; transition: background var(--transition);
+      display: inline-block;
+      background: #006aff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
     }
-    .btn:hover { background: #004c99; }
-    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-    th, td { padding: 12px; border: 1px solid #a0c4ff; text-align: left; }
-    th { background: var(--secondary-bg); }
+    .btn:hover, .btn:focus { background: #004c99; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid #a0c4ff;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: #0a007d;
+      color: #fff;
+    }
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #007bff; /* label also bright blue */
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+    }
     footer {
-      text-align: center; padding: 20px;
-      background: var(--secondary-bg);
+      background: #0a007d;
+      color: #ffd700;
+      text-align: center;
+      padding: 15px;
     }
     @media (max-width: 1024px) {
-      aside.sidebar { display: none; }
-      body { display: block; }
-      main { padding: 20px; }
+      aside { display: none; }
+      main { margin-top: 60px; }
     }
     @media (max-width: 768px) {
-      nav { flex-direction: column; height: auto; padding: 10px; }
-      nav a { width: 100%; text-align: center; margin: 5px 0; }
-      section { margin: 15px; padding: 60px 15px; max-width: 100%; }
+      nav ul { flex-direction: column; }
+      .container { padding: 10px; }
       .btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#hero" class="chrome-gold">Главная</a>
-    <a href="#about" class="chrome-gold">О нас</a>
-    <a href="#tokenomics" class="chrome-gold">Tokenomics</a>
-    <a href="#contract" class="chrome-gold">Контракт</a>
-    <a href="#contact" class="chrome-gold">Контакты</a>
-  </nav>
-  <div class="content-wrapper">
-    <main>
-      <section id="hero">
-        <h1>Встречайте Dmitry's Friends (DF)</h1>
-        <p>Токен, рожденный из дружбы и семейного тепла! 🩷</p>
+  <a href="#content" class="skip-link">Перейти к содержанию</a>
+  <header>
+    <nav aria-label="Основная навигация">
+      <ul>
+        <li><a href="#hero">Главная</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#tokenomics">Tokenomics</a></li>
+        <li><a href="#contract">Контракт</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="content">
+    <aside>
+      <img src="2.gif" alt="Логотип проекта">
+      <img src="images/side2.jpg" alt="КАРТИНКА">
+    </aside>
+    <div class="container">
+      <section id="hero" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">Встречайте Dmitry's Friends (DF)</h1>
+        <p>Токен, рожденный из дружбы и семейного тепла!</p>
         <p>Присоединяйтесь к теплой семье DF и вместе сделаем мир добрее!</p>
-        <a href="#contact" class="btn chrome-gold">Присоединиться</a>
+        <a href="#contact" class="btn">Присоединиться</a>
       </section>
-      <section id="about">
-        <h2>О нашем токене</h2>
-        <p>Этот токен – как семейный очаг, созданный для тех, кто ценит дружбу, поддержку и душевное тепло. Dmitry's Friends (DF) — это не просто цифры на экране, это наша вера в то, что вместе мы можем сделать мир немного добрее и светлее.</p>
+      <section id="about" aria-labelledby="about-heading">
+        <h2 id="about-heading">О нашем токене</h2>
+        <p>Этот токен – как семейный очаг, созданный для тех, кто ценит дружбу, поддержку и душевное тепло.</p>
         <ul>
-          <li>Стать надежным плечом и опорой для создателей полезных проектов.</li>
-          <li>Объединить людей, для которых важны честность, доброта и взаимопомощь.</li>
-          <li>Создать атмосферу доверия, где каждый чувствует себя как дома.</li>
+          <li>Надежная опора для создателей полезных проектов.</li>
+          <li>Честность, доброта и взаимопомощь.</li>
+          <li>Атмосфера доверия, где каждый как дома.</li>
         </ul>
       </section>
-      <section id="tokenomics">
-        <h2>Tokenomics $DF</h2>
+      <section id="tokenomics" aria-labelledby="tokenomics-heading">
+        <h2 id="tokenomics-heading">Tokenomics $DF</h2>
         <table>
           <thead>
-            <tr><th class="chrome-gold">Тип комиссии</th><th class="chrome-gold">Процент</th></tr>
+            <tr><th>Тип комиссии</th><th>Процент</th></tr>
           </thead>
           <tbody>
             <tr><td>Покупка</td><td>20%</td></tr>
@@ -157,35 +192,33 @@
         </table>
         <h3>Распределение комиссий</h3>
         <ul>
-          <li>60% — распределяются между держателями токенов (пропорционально доле).</li>
+          <li>60% — держателям (пропорционально доле).</li>
           <li>15% — сжигание токенов.</li>
           <li>25% — развитие проекта.</li>
         </ul>
       </section>
-      <section id="contract">
-        <h2>Адрес контракта</h2>
+      <section id="contract" aria-labelledby="contract-heading">
+        <h2 id="contract-heading">Адрес контракта</h2>
         <p><code>EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0</code></p>
-        <a href="https://explorer.ton.org/address/EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0" class="btn chrome-gold" target="_blank">Просмотреть в Explorer</a>
+        <a href="https://tonviewer.com/EQAp8pimeVjBHEQdJTD95sh-XRUDmmLIXui83oR5qMvD8Uy0?section=transactions" class="btn" target="_blank">Просмотреть в Tonviewer</a>
       </section>
-      <section id="contact">
-        <h2>Присоединяйтесь к семье DF</h2>
-        <p>Мы приглашаем всех, кто ищет не просто инвестицию, а настоящих друзей и теплую атмосферу. Вместе мы – сила!</p>
-        <form action="#" method="POST">
-          <input type="text" name="name" placeholder="Ваше имя" required style="margin-bottom:10px;padding:8px;width:100%;">
-          <input type="email" name="email" placeholder="Ваш email" required style="margin-bottom:10px;padding:8px;width:100%;">
-          <textarea name="message" rows="4" placeholder="Сообщение" required style="margin-bottom:10px;padding:8px;width:100%;"></textarea>
-          <button type="submit" class="btn chrome-gold">Отправить</button>
+      <section id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Присоединяйтесь к семье DF</h2>
+        <form action="#" method="POST" aria-describedby="contact-description">
+          <p id="contact-description">Заполните форму, и мы свяжемся с вами в ближайшее время.</p>
+          <label for="name">Ваше имя</label>
+          <input id="name" type="text" name="name" required>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required>
+          <label for="message">Сообщение</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <button type="submit" class="btn">Отправить</button>
         </form>
-  <footer class="chrome-gold">
+      </section>
+    </div>
+  </main>
+  <footer>
     &copy; 2025 Dmitry's Friends. Все права защищены.
   </footer>
-  <script defer>
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
 </body>
 </html>
