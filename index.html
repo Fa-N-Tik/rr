@@ -9,12 +9,21 @@
   <style>
     /* Base reset and box-sizing */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; margin: 0; padding: 0; scroll-behavior: smooth; }
-    body {
+    html, body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #007bff; /* ярко-синий текст */
       background: url('4.jpg') center center / cover fixed no-repeat;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden; /* предотвращает горизонтальную прокрутку на мобильных */
+      width: 100%;
+    } height: 100%; margin: 0; padding: 0; scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #007bff; /* ярко-синий текст */
+      background: url('images/4.jpg') center center / cover fixed no-repeat;
       display: flex;
       flex-direction: column;
     }
@@ -139,6 +148,7 @@
       main { margin-top: 60px; }
     }
     @media (max-width: 768px) {
+      main { flex-direction: column; }
       nav ul { flex-direction: column; }
       .container { padding: 10px; }
       .btn { width: 100%; text-align: center; }
@@ -161,7 +171,7 @@
   <main id="content">
     <aside>
       <img src="2.gif" alt="Логотип проекта">
-      <img src="images/side2.jpg" alt="КАРТИНКА">
+      <img src="images/side2.jpg" alt="Схема токена">
     </aside>
     <div class="container">
       <section id="hero" aria-labelledby="hero-heading">
